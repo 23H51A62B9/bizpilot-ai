@@ -16,7 +16,7 @@ exports.salesFlow = genkit_1.ai.defineFlow({
     const prompt = `Analyze sales opportunities for: ${subject}. 
         Query Salesforce for relevant leads and opportunities.`;
     const llmResponse = await genkit_1.ai.generate({
-        model: 'vertexai/gemini-1.5-flash',
+        model: 'googleai/gemini-1.5-flash',
         prompt: prompt,
         tools: [salesforceTools_1.searchSalesforceTool],
         config: { temperature: 0.7 }

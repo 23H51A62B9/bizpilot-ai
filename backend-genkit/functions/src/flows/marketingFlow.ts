@@ -14,7 +14,7 @@ export const marketingFlow = ai.defineFlow(
     async ({ productName }) => {
         // 1. Generate Content with Vertex AI
         const llmResponse = await ai.generate({
-            model: 'vertexai/gemini-1.5-flash',
+            model: 'googleai/gemini-1.5-flash',
             prompt: `Write a catchy LinkedIn post for: ${productName}.`,
             config: { temperature: 0.7 }
         });

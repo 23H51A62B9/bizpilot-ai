@@ -48,7 +48,7 @@ exports.auditorFlow = genkit_1.ai.defineFlow({
     try {
         const result = await (0, salesforceAuth_1.salesforceQuery)('SELECT Id, CaseNumber, Subject, Status, Priority FROM Case LIMIT 10');
         const llmResponse = await genkit_1.ai.generate({
-            model: 'vertexai/gemini-1.5-flash',
+            model: 'googleai/gemini-1.5-flash',
             prompt: `Audit analysis for ${subject}. Cases: ${JSON.stringify(result.records)}`,
             config: { temperature: 0.2 }
         });

@@ -49,7 +49,7 @@ exports.financeFlow = genkit_1.ai.defineFlow({
     try {
         const result = await (0, salesforceAuth_1.salesforceQuery)('SELECT Id, Name, Amount, StageName, CloseDate FROM Opportunity WHERE Amount != null LIMIT 10');
         const llmResponse = await genkit_1.ai.generate({
-            model: 'vertexai/gemini-1.5-flash',
+            model: 'googleai/gemini-1.5-flash',
             prompt: `Financial analysis for ${subject}. Opportunities: ${JSON.stringify(result.records)}`,
             config: { temperature: 0.3 }
         });

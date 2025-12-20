@@ -36,14 +36,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ai = void 0;
 // backend-genkit/functions/src/genkit.ts
 const genkit_1 = require("genkit");
-const vertexai_1 = require("@genkit-ai/vertexai");
+const googleai_1 = require("@genkit-ai/googleai");
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 exports.ai = (0, genkit_1.genkit)({
     plugins: [
-        (0, vertexai_1.vertexAI)({
-            projectId: process.env.GCLOUD_PROJECT || 'bizpilot-ai-480607',
-            location: process.env.GCLOUD_LOCATION || 'us-central1'
+        (0, googleai_1.googleAI)({
+            apiKey: process.env.GOOGLE_GENAI_API_KEY
         }),
     ],
 });

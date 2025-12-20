@@ -17,13 +17,13 @@ export const inventoryFlow = ai.defineFlow(
             const result = await salesforceQuery(
                 'SELECT Id, Name, ProductCode, IsActive FROM Product2 LIMIT 10'
             );
-            
+
             const llmResponse = await ai.generate({
-                model: 'vertexai/gemini-1.5-flash',
+                model: 'googleai/gemini-1.5-flash',
                 prompt: `Analyze inventory for ${subject}. Products: ${JSON.stringify(result.records)}`,
                 config: { temperature: 0.5 }
             });
-            
+
             return llmResponse.text || `Inventory Flow analyzed for ${subject}`;
         } catch (error) {
             console.error('Inventory query failed:', error);
