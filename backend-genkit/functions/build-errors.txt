@@ -1,0 +1,9 @@
+﻿
+> build
+> tsc
+
+src/flows/marketingFlow.ts(2,10): error TS2305: Module '"@genkit-ai/google-genai"' has no exported member 'gemini15Flash'.
+src/index.ts(23,13): error TS2349: This expression is not callable.
+  Type 'typeof e' has no call signatures.
+src/index.ts(24,9): error TS2349: This expression is not callable.
+  Type '{ default: <T extends e.CorsRequest = CorsRequest>(options?: CorsOptions | CorsOptionsDelegate<T>) => (req: T, res: { statusCode?: number; setHeader(key: string, value: string): any; end(): any; }, next: (err?: any) => any) => void; }' has no call signatures.
