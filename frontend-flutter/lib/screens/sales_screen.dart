@@ -42,6 +42,7 @@ class _SalesScreenState extends State<SalesScreen> {
   ];
 
   Future<void> _analyzeLeads() async {
+    if (!mounted) return;
     setState(() {
       _isAnalyzing = true;
       _result = null;
@@ -49,14 +50,17 @@ class _SalesScreenState extends State<SalesScreen> {
 
     try {
       final response = await _apiService.analyzeSales('Analyze recent leads');
+      if (!mounted) return;
       setState(() {
         _result = response['data']?.toString() ?? 'Analysis complete';
       });
     } catch (e) {
+      if (!mounted) return;
       setState(() {
         _result = 'Error: $e';
       });
     } finally {
+      if (!mounted) return;
       setState(() {
         _isAnalyzing = false;
       });

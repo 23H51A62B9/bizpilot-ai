@@ -50,6 +50,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
   ];
 
   Future<void> _analyzeFinance() async {
+    if (!mounted) return;
     setState(() => _isAnalyzing = true);
     try {
       await _apiService.analyzeFinance('Generate revenue forecast');
@@ -62,12 +63,12 @@ class _FinanceScreenState extends State<FinanceScreen> {
         );
       }
     } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: $e'), backgroundColor: AppTheme.errorRed),
-        );
-      }
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error: $e'), backgroundColor: AppTheme.errorRed),
+      );
     } finally {
+      if (!mounted) return;
       setState(() => _isAnalyzing = false);
     }
   }

@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 class ApiService {
   // Change this to your actual Firebase project URL when deploying
   // For local emulator:
-  static const String baseUrl = 'http://localhost:5001/bizpilot-ai-480607/us-central1';
+  static const String baseUrl = 'http://localhost:5002/bizpilot-ai-480607/us-central1';
   
   // For production (when you deploy):
   // static const String baseUrl = 'https://us-central1-bizpilot-ai-480607.cloudfunctions.net';
